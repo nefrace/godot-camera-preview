@@ -1,0 +1,67 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://addons/camera_preview/cam_preview.gd" type="Script" id=1]
+[ext_resource path="res://addons/camera_preview/window.gd" type="Script" id=2]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0, 0, 0, 0.164706 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0.290196, 0.290196, 0.290196, 0.396078 )
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="cam_preview" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 1
+script = ExtResource( 1 )
+
+[node name="window" type="Panel" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -316.0
+margin_top = -250.0
+rect_min_size = Vector2( 300, 250 )
+mouse_default_cursor_shape = 6
+custom_styles/panel = SubResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="window"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+text = "no signal"
+align = 1
+valign = 1
+
+[node name="container" type="ViewportContainer" parent="window"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 1
+
+[node name="vp" type="Viewport" parent="window/container"]
+size = Vector2( 316, 250 )
+handle_input_locally = false
+render_target_update_mode = 0
+shadow_atlas_size = 512
+
+[node name="resize" type="Control" parent="window"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -20.0
+margin_top = -20.0
+rect_min_size = Vector2( 20, 20 )
+mouse_default_cursor_shape = 12
+
+[connection signal="gui_input" from="window" to="window" method="_on_window_gui_input"]
+[connection signal="resized" from="window" to="." method="_on_window_resized"]
+[connection signal="gui_input" from="window/resize" to="window" method="_on_resize_gui_input"]
