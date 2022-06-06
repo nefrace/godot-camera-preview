@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://addons/camera_preview/toggle_button.gd" type="Script" id=1]
+[ext_resource path="./toggle_button.gd" type="Script" id=1]
 
 [node name="ToolButton" type="MenuButton"]
 margin_right = 114.0
