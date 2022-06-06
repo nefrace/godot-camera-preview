@@ -36,6 +36,12 @@ func _exit_tree():
 	if button_instance:
 		button_instance.queue_free()
 		
+func _process(_delta):
+	if cam_selected and pcam:
+		pcam.fov = cam_selected.fov
+		pcam.projection = cam_selected.projection
+		pcam.size = cam_selected.size
+		
 func find_a_camera(root) -> Camera:
 	if root is Camera:
 		return root
