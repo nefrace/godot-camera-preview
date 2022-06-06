@@ -2,6 +2,8 @@
 
 ![icon](https://user-images.githubusercontent.com/18103556/172068287-a90cc657-ee91-4fec-b843-e4c2f7c44290.png)
 
+**This plugin is for Godot stable 3.X version. If you want to use it on 4.0 alpha, check out [this fork](https://github.com/Lakamfo/godot4-camera-preview) by [Lakamfo](https://github.com/Lakamfo/)**
+
 Allows you to add a small preview window inside main editor's view to show the preview of the selected camera.
 
 It can search through the children of selected node to find a Camera node (disabled by default)
